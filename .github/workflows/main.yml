@@ -120,7 +120,7 @@ jobs:
         path: ./*.tgz
   deploy-helm-dev:
     name: Deploy Helm
-    uses: ./.github/worflows/deployment-workflow.yml
+    uses: ./.github/workflows/deployment-workflow.yml
     needs: ["helm-ci", "docker-ci"]
     secrets: inherit
     with:
@@ -130,8 +130,8 @@ jobs:
         helm-release-name: todoapp
 
   deploy-helm-stg:
-    name: Deploy Helm
-    uses: ./.github/worflows/deployment-workflow.yml
+    name: Deploy Helm Staging
+    uses: ./.github/workflows/deployment-workflow.yml
     needs: ["deploy-helm-dev"]
     secrets: inherit
     with:
